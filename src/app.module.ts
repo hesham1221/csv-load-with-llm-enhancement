@@ -5,6 +5,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LLMModule } from './llm/llm.module';
 import { ProductModule } from './product/product.module';
+import { CsvModule } from './common/csv/csv.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -17,7 +19,9 @@ import { ProductModule } from './product/product.module';
       inject: [ConfigService],
     }),
     LLMModule,
-    ProductModule
+    ProductModule,
+    CsvModule,
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService],

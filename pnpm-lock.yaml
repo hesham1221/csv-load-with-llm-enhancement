@@ -36,8 +36,8 @@ dependencies:
     specifier: ^8.5.1
     version: 8.5.1
   nanoid:
-    specifier: ^5.0.7
-    version: 5.0.7
+    specifier: ^3.0.0
+    version: 3.0.0
   reflect-metadata:
     specifier: ^0.1.13
     version: 0.1.14
@@ -4494,10 +4494,8 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
 
-  /nanoid@5.0.7:
-    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
-    engines: {node: ^18 || >=20}
-    hasBin: true
+  /nanoid@3.0.0:
+    resolution: {integrity: sha512-5lU+F2QpTW1JLwlXxnu2/jkpTipIuYZL3Za6TQzM16HYDzZQqlthbXYSW0H2KzZu1UQPGHDPbCl1TS3xOKfqEQ==}
     dev: false
 
   /natural-compare-lite@1.4.0:

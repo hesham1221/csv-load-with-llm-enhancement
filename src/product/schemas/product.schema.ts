@@ -8,6 +8,9 @@ export class Product extends Document {
   docId: string;
 
   @Prop({ required: true })
+  productId: string;
+
+  @Prop({ required: true })
   name: string;
 
   @Prop({ required: true })
@@ -22,16 +25,18 @@ export class Product extends Document {
   @Prop({ required: true })
   vendorId: string;
 
-  @Prop({ required: true })
-  manufacturerId: string;
-
+  
   @Prop({ required: true })
   storefrontPriceVisibility: string;
 
   @Prop({ type: [VariantSchema], required: true })
   variants: Variant[];
 
-  @Prop({ type: [{ id: String, name: String, value: String }], required: true })
+  @Prop({
+    type: [{ id: String, name: String, value: String }],
+    required: true,
+    default: [],
+  })
   options: {
     id: string;
     name: string;
@@ -61,7 +66,7 @@ export class Product extends Document {
   }[];
 
   @Prop({ required: true })
-  categoryId: string;
+  categoryName: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
