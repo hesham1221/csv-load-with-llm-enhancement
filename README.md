@@ -1,73 +1,57 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# CSV Load with LLM Enhancement
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Overview
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project is a backend service built with NestJS and Mongoose to manage medical products and their variants. It includes functionality to import large CSV files, save data to MongoDB, and enhance product descriptions using an LLM service. The project uses the strategy pattern to easily integrate different LLM strategies based on demand.
 
 ## Installation
 
-```bash
-$ pnpm install
-```
+### Prerequisites
 
-## Running the app
+- Node.js (v18.x or later)
+- MongoDB
+- Docker (optional)
 
-```bash
-# development
-$ pnpm run start
+### Setup
 
-# watch mode
-$ pnpm run start:dev
+1. Clone the repository:
 
-# production mode
-$ pnpm run start:prod
-```
+   ```bash
+   git clone https://github.com/hesham1221/csv-load-with-llm-enhancement
+   cd csv-load-with-llm-enhancement
+   ```
 
-## Test
+2. Install dependencies using `pnpm`:
 
-```bash
-# unit tests
-$ pnpm run test
+   ```bash
+   pnpm install
+   ```
 
-# e2e tests
-$ pnpm run test:e2e
+3. Create a `.env` file in the root directory and add the following environment variables:
 
-# test coverage
-$ pnpm run test:cov
-```
+   ```env
+   MONGODB_URI=mongodb://localhost:27017/yourdatabase
+   OPENAI_API_KEY=your_openai_api_key
+   ```
 
-## Support
+4. Start the application:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+   ```bash
+   pnpm start
+   ```
 
-## Stay in touch
+5. (Optional) Start the application using Docker:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+   ```bash
+   docker-compose up --build
+   ```
 
-## License
+## Usage
 
-Nest is [MIT licensed](LICENSE).
+### Import Products from CSV
+
+To import products from a CSV file, use the `ProductService`'s `importProductsFromCSV` method. Ensure the CSV file is formatted correctly.
+
+### Strategy Pattern for LLM Integration
+
+The project uses the strategy pattern to allow easy integration of different LLM strategies. This design makes it flexible to switch or add new LLM services based on demand.

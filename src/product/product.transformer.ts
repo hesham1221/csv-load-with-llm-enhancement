@@ -7,7 +7,6 @@ import { UtilService } from 'src/common/utils/util.service';
 export class ProductTransformer {
   constructor(private utilService: UtilService) {}
   convertToJSON(products: any[]): Product[] {
-    console.log(products)
     const groupedProducts = products.reduce((acc, product) => {
       const { productId } = product;
       if (!acc[productId]) {
