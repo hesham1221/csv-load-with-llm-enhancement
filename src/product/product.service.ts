@@ -6,6 +6,7 @@ import { CsvService } from '../common/csv/csv.service';
 import { LLMService } from 'src/llm/llm.service';
 import { generateEnhanceDescriptionPrompt } from './prompts/enhance-description.prompt';
 import { ProductTransformer } from './product.transformer';
+import { UtilService } from 'src/common/utils/util.service';
 
 @Injectable()
 export class ProductService {
@@ -45,6 +46,7 @@ export class ProductService {
    * @return {Promise<void>} A Promise that resolves when the save operation is complete.
    */
   private async saveToMongo(products: Partial<Product>[]): Promise<void> {
+    console.log(products)
     const bulkOps = products.map((product) => ({
       updateOne: {
         filter: { productId: product.productId },

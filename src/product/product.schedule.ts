@@ -9,7 +9,7 @@ export class ProductSchedule {
   @Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
   async importProductsFromCSVJob() {
     await this.productService.importProductsFromCSV(
-      join(process.cwd(), 'public', 'products.csv'), // This suppose to be a data came from the vendure server so we can mock it with a file
+      join(process.cwd(), 'public', 'sample-products.csv'), // This suppose to be a data came from the vendure server so we can mock it with a file
     );
   }
 }

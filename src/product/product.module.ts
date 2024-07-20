@@ -5,11 +5,13 @@ import { ProductService } from './product.service';
 import { LLMModule } from 'src/llm/llm.module';
 import { ProductSchedule } from './product.schedule';
 import { ProductTransformer } from './product.transformer';
+import { UtilModule } from 'src/common/utils/utils.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Product.name, schema: ProductSchema }]),
     LLMModule,
+    UtilModule
   ],
   providers: [ProductService, ProductSchedule, ProductTransformer],
   exports: [ProductService],
